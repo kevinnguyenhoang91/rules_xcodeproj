@@ -580,9 +580,6 @@ The xcodeproj rule requires {} rules to have a single library dep. {} has {}.\
         build_settings = build_settings,
     )
 
-    modulemaps = _process_modulemaps(
-        swift_info = target[SwiftInfo] if SwiftInfo in target else None,
-    )
     is_bundle = bundle_info != None
     is_swift = SwiftInfo in target
     swift_info = target[SwiftInfo] if is_swift else None
