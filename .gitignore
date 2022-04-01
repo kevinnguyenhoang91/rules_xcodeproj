@@ -2,4 +2,5 @@
 
 **/*.xcodeproj/xcuserdata/*
 **/*.xcodeproj/project.xcworkspace/xcuserdata/*
+**/*.xcodeproj/rules_xcodeproj/gen_dir
 **/*.xcodeproj/*

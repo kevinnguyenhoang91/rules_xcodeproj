@@ -11,7 +11,9 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 9EA7153333762DEA3558208C /* Build configuration list for PBXAggregateTarget "Bazel Generated Files" */;
 			buildPhases = (
-				B572629FB8AF90B433BDF406 /* ShellScript */,
+				8B6377F4DA6FAE3ED76C177A /* Generate Files */,
+				64D3406EB908D4BD044C581E /* Copy Files */,
+				C977250D6EB972BF2FF38593 /* Fix Modulemaps */,
 			);
 			dependencies = (
 			);
@@ -28,19 +30,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		238926FA224C84D2FD465830 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 90B40B411875CA87718F15D6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4135F6971396668DE392B2E0;
-			remoteInfo = lib_impl;
-		};
 		53C1EB8CDF10EE6732F6A955 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 90B40B411875CA87718F15D6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3064A34776444DE49627998E;
 			remoteInfo = "Bazel Generated Files";
+		};
+		C8D84219C50F3654639EFA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90B40B411875CA87718F15D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4135F6971396668DE392B2E0;
+			remoteInfo = lib_impl;
 		};
 		F61703BD3CF37BD67AA71A40 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -53,14 +55,13 @@
 
 /* Begin PBXFileReference section */
 		1704EC3DF20D136B9D2B8C0D /* liblib_impl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblib_impl.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A7957F0511EB9FF1E35C11E /* lib_swift.swift.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = lib_swift.swift.modulemap; sourceTree = "<group>"; };
 		4EADE140455A0D9F51FEA180 /* liblib_swift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblib_swift.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		57486259156D32B2F964EF4E /* lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lib.h; sourceTree = "<group>"; };
 		600865D85986BF1EAC59E70F /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
+		7A2C174D9E5615981EBC16AB /* lib_impl.swift.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = lib_impl.swift.modulemap; sourceTree = "<group>"; };
 		97093D4A77C09BF21048172D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A7FEC277C4E8ADC5127B637A /* lib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lib.m; sourceTree = "<group>"; };
 		B5511E6B7C59A1600AEF50FA /* private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
-		D073C96A1AA5433EDA476685 /* generated.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = generated.xcfilelist; sourceTree = "<group>"; };
 		E37C21ED6BACCA0E92024F54 /* tool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tool; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,7 +96,7 @@
 				F5A6324A61409BCB2F9AAAAC /* macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57 */,
 			);
 			name = "Bazel Generated Files";
-			path = "bazel-out";
+			path = test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/gen_dir;
 			sourceTree = "<group>";
 		};
 		336EB36119F84BD94D36BD51 /* examples */ = {
@@ -148,19 +149,9 @@
 			children = (
 				5E3A6AF7F4D54FD8AC656E4D /* examples */,
 				22D63AE4A8E6D3194DC63EEA /* Bazel Generated Files */,
-				9E638292E19764EEC3974845 /* rules_xcodeproj */,
 				428D294EDDF4A41D530E1B84 /* Products */,
 				C66B8C06B79203E1B66DFCCF /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		9E638292E19764EEC3974845 /* rules_xcodeproj */ = {
-			isa = PBXGroup;
-			children = (
-				D073C96A1AA5433EDA476685 /* generated.xcfilelist */,
-			);
-			name = rules_xcodeproj;
-			path = test/fixtures/command_line/project.xcodeproj/rules_xcodeproj;
 			sourceTree = "<group>";
 		};
 		B500628E407BF1033D44E5A3 /* command_line */ = {
@@ -175,7 +166,7 @@
 		C03B6C3AA5E930594D9E7822 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				1A7957F0511EB9FF1E35C11E /* lib_swift.swift.modulemap */,
+				7A2C174D9E5615981EBC16AB /* lib_impl.swift.modulemap */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -224,6 +215,7 @@
 			);
 			dependencies = (
 				ADD7BCC62111D626B55D6099 /* PBXTargetDependency */,
+				8CF8E2CADAFC92663F514E32 /* PBXTargetDependency */,
 			);
 			name = lib_swift;
 			productName = lib_swift;
@@ -239,7 +231,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F564132625DD0D24B12A9CCD /* PBXTargetDependency */,
 				0459E26F2853B3A5AABC4F0D /* PBXTargetDependency */,
 			);
 			name = tool;
@@ -296,6 +287,27 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		64D3406EB908D4BD044C581E /* Copy Files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(PROJECT_DIR)/test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/generated.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Copy Files";
+			outputFileListPaths = (
+				"$(PROJECT_DIR)/test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/generated.copied.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\n\ncd \"bazel-out\"\n\nrsync \\\n  --files-from \"$PROJECT_DIR/test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/generated.rsynclist\" \\\n  -L \\\n  . \\\n  \"$BUILD_DIR/bazel-out\"\n\ncd \"$PROJECT_FILE_PATH/rules_xcodeproj\"\n\n# Need to remove the directory that Xcode creates as part of output prep\nrm -rf gen_dir\n\nln -sf \"$BUILD_DIR/bazel-out\" gen_dir\n";
+			showEnvVarsInLog = 0;
+		};
 		7946490D36B37800A25F0454 /* Copy Swift Generated Header */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,14 +318,14 @@
 			);
 			name = "Copy Swift Generated Header";
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
+				"$(CONFIGURATION_BUILD_DIR)/$(SWIFT_OBJC_INTERFACE_HEADER_NAME)",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cp \"${SCRIPT_INPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B572629FB8AF90B433BDF406 /* ShellScript */ = {
+		8B6377F4DA6FAE3ED76C177A /* Generate Files */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -321,14 +333,36 @@
 			);
 			inputPaths = (
 			);
+			name = "Generate Files";
 			outputFileListPaths = (
-				test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/generated.xcfilelist,
+				"$(PROJECT_DIR)/test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/generated.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=\"${PATH//\\/usr\\/local\\/bin//opt/homebrew/bin:/usr/local/bin}\" \\\n  ${BAZEL_PATH} \\\n  build \\\n  --output_groups=generated_inputs \\\n  //test/fixtures/command_line:xcodeproj\n";
+			shellScript = "set -eu\n\nPATH=\"${PATH//\\/usr\\/local\\/bin//opt/homebrew/bin:/usr/local/bin}\" \\\n  ${BAZEL_PATH} \\\n  build \\\n  --output_groups=generated_inputs \\\n  //test/fixtures/command_line:xcodeproj\n";
+			showEnvVarsInLog = 0;
+		};
+		C977250D6EB972BF2FF38593 /* Fix Modulemaps */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(PROJECT_DIR)/test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/modulemaps.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Fix Modulemaps";
+			outputFileListPaths = (
+				"$(PROJECT_DIR)/test/fixtures/command_line/project.xcodeproj/rules_xcodeproj/modulemaps.fixed.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\n\nwhile IFS= read -r input; do\n  output=\"${input%.modulemap}.xcode.modulemap\"\n  perl -p -e \\\n    's%^(    *(\\w )*header \"(\\.\\.\\/)*)(((?!(bazel-out|external)).)*\")%\\1SRCROOT/\\4%' \\\n    < \"$input\" \\\n    > \"$output\"\ndone < \"$SCRIPT_INPUT_FILE_LIST_0\"\n\ncd \"$BUILD_DIR\"\nln -sfn \"$PROJECT_DIR\" SRCROOT\nln -sfn \"$(PROJECT_DIR)/bazel-rules_xcodeproj/external\" external\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -368,17 +402,17 @@
 			target = 829CC86FED0979E9DABDD389 /* lib_swift */;
 			targetProxy = F61703BD3CF37BD67AA71A40 /* PBXContainerItemProxy */;
 		};
+		8CF8E2CADAFC92663F514E32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = lib_impl;
+			target = 4135F6971396668DE392B2E0 /* lib_impl */;
+			targetProxy = C8D84219C50F3654639EFA28 /* PBXContainerItemProxy */;
+		};
 		ADD7BCC62111D626B55D6099 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Bazel Generated Files";
 			target = 3064A34776444DE49627998E /* Bazel Generated Files */;
 			targetProxy = 53C1EB8CDF10EE6732F6A955 /* PBXContainerItemProxy */;
-		};
-		F564132625DD0D24B12A9CCD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = lib_impl;
-			target = 4135F6971396668DE392B2E0 /* lib_impl */;
-			targetProxy = 238926FA224C84D2FD465830 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -391,6 +425,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"SECRET_3=\\\"Hello\\\"",
+					"SECRET_2=\\\"World!\\\"",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = (
 					"-D_FORTIFY_SOURCE=1",
@@ -426,7 +464,7 @@
 					"-D__TIMESTAMP__=\"redacted\"",
 					"-D__TIME__=\"redacted\"",
 				);
-				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(PROJECT_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin/examples/command_line/lib/lib_swift.swift.modulemap";
+				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(BUILD_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin/examples/command_line/lib/lib_impl.swift.xcode.modulemap";
 				PRODUCT_MODULE_NAME = LibSwift;
 				PRODUCT_NAME = lib_swift;
 				SDKROOT = macosx;
@@ -437,7 +475,7 @@
 				TARGET_NAME = lib_swift;
 				USER_HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin",
+					"$(BUILD_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin",
 				);
 			};
 			name = Debug;
@@ -481,10 +519,8 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(PROJECT_DIR)/examples/command_line/lib/dir with space\"",
 					"\"$(BUILD_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin/examples/command_line/lib/dir with space\"",
-					"\"$(PROJECT_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin/examples/command_line/lib/dir with space\"",
 					"$(PROJECT_DIR)/examples/command_line/lib/private",
 					"$(BUILD_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin/examples/command_line/lib/private",
-					"$(PROJECT_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin/examples/command_line/lib/private",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = (
@@ -538,7 +574,6 @@
 				USER_HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(BUILD_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin",
-					"$(PROJECT_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin",
 				);
 			};
 			name = Debug;
@@ -599,7 +634,6 @@
 				USER_HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(BUILD_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin",
-					"$(PROJECT_DIR)/bazel-out/macos-x86_64-min12.0-applebin_macos-darwin_x86_64-fastbuild-ST-f2aadcfcab57/bin",
 				);
 			};
 			name = Debug;
