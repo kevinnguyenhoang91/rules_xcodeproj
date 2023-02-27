@@ -61,10 +61,16 @@ extension XCScheme {
                 .sortedLocalizedStandard(\.pbxTarget.name)
                 .first
             {
+                let scriptText: String
+                if buildMode == .xcode {
+                    scriptText = XCScheme.ExecutionAction.createLLDBInitScriptXcode
+                } else {
+                    scriptText = XCScheme.ExecutionAction.createLLDBInitScript
+                }
                 otherPreActions.append(
                     .createPreActionScript(
                         title: "Update .lldbinit",
-                        scriptText: ExecutionAction.createLLDBInitScript,
+                        scriptText: scriptText,
                         buildableReference: aTargetInfo.buildableReference
                     )
                 )
@@ -85,10 +91,16 @@ extension XCScheme {
         if let launchActionInfo = schemeInfo.launchActionInfo {
             // TODO: Make this similar to `initBazelBuildOutputGroupsFile()`,
             // instead of `otherPreActions`
+            let scriptText: String
+            if buildMode == .xcode {
+                scriptText = XCScheme.ExecutionAction.createLLDBInitScriptXcode
+            } else {
+                scriptText = XCScheme.ExecutionAction.createLLDBInitScript
+            }
             let otherPreActions: [XCScheme.ExecutionAction] = [
                 .createPreActionScript(
                     title: "Update .lldbinit",
-                    scriptText: ExecutionAction.createLLDBInitScript,
+                    scriptText: scriptText,
                     buildableReference: launchActionInfo
                         .targetInfo.buildableReference
                 )
@@ -111,7 +123,7 @@ extension XCScheme {
             let scriptText: String
             if buildMode == .xcode {
                 scriptTitle = "Update .lldbinit"
-                scriptText = XCScheme.ExecutionAction.createLLDBInitScript
+                scriptText = XCScheme.ExecutionAction.createLLDBInitScriptXcode
             } else {
                 scriptTitle = "Update .lldbinit and copy dSYMs"
                 scriptText = XCScheme.ExecutionAction.createLLDBInitScript +
@@ -246,6 +258,10 @@ fi
 
     static let createLLDBInitScript = #"""
 "$BAZEL_INTEGRATION_DIR/create_lldbinit.sh"
+"""#
+
+    static let createLLDBInitScriptXcode = #"""
+"$BAZEL_INTEGRATION_DIR/create_lldbinit_xcode.sh"
 """#
 
     static let copyDSYMsScript = #"""
